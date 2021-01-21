@@ -5,10 +5,12 @@ import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
+@Transactional
 public class MemberService {
 
     //의존성 주입?
@@ -32,7 +34,7 @@ public class MemberService {
         });
     }
 
-    public List<Member> findMembers(Member member){
+    public List<Member> findMembers(){
         return memberRepository.findAll();
     }
 
